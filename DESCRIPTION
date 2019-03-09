@@ -1,0 +1,12 @@
+Package: nutritionR
+Type: Package
+Title: A wrapper for the Paprika and Nutritionix APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing
+Version: 1.0
+Date: 2019-03-08
+Author: Tyler Burleigh <tylerburleigh@gmail.com>
+Maintainer: Tyler Burleigh <tylerburleigh@gmail.com>
+Description: It allows you to perform nutritional analysis of recipes stored in Paprika using natural language processing
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
