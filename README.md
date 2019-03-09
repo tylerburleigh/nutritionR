@@ -3,7 +3,7 @@ A wrapper for the Paprika and Nutritionix APIs, allowing nutritional analysis of
 
 # Requirements to use
 
-Requires a Paprika Cloud Sync account and a Nutritionix API key (free)
+Requires a Paprika Cloud Sync account (paid, $20) and a Nutritionix API key (free)
 
 # Installation
 
