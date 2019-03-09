@@ -1,5 +1,5 @@
 # nutritionR
-A prototype wrapper for the Paprika and Nutritionix APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing via Nutritionix.
+A prototype wrapper for the Paprika (https://www.paprikaapp.com) and Nutritionix (https://www.nutritionix.com) APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing via Nutritionix.
 
 # Requirements to use
 
@@ -41,3 +41,7 @@ recipe_detail
 calories <- get_recipe_detail(recipe_detail$ingredients)
 calories
 ```
+
+# Thanks
+
+Thanks to @mattdsteele for reverse-engineering the Paprika API https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a, and @walkerke for writing tidycensus https://github.com/walkerke/tidycensus. Code from `tidycensus::census_api_key()` was used as a basis for `install_paprika_creds()` and `install_nutritionix_creds()`.
