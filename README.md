@@ -1,5 +1,5 @@
 # nutritionR
-A wrapper for the Paprika and Nutritionix APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing via Nutritionix
+A wrapper for the Paprika and Nutritionix APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing via Nutritionix.
 
 # Requirements to use
 
