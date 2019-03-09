@@ -1,16 +1,16 @@
 # nutritionR
 A wrapper for the Paprika and Nutritionix APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing via Nutritionix
 
+# Requirements to use
+
+Requires a Paprika Cloud Sync account and a Nutritionix API key (free)
+
 # Installation
 
 ```
 install.packages("devtools")
 devtools::install_github("tylerburleigh/nutritionR")
 ```
-
-# Requirements to use
-
-Requires a Paprika Cloud Sync account and a Nutritionix API key (free)
 
 # Vignette
 
