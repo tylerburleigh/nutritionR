@@ -124,7 +124,7 @@ $unit
 Let's say I want to know the calories per serving. If I know how many servings the recipe makes, then I could divide the `amount` returned by `nutrient()` by the number of servings.
 
 ```
-obj <- nutritionix_lookup("2 cups red lentils, 
+obj <- nutritionix_lookup("2 cups dry red lentils, 
                            2 tsps turmeric, 
                            4 tbsp olive oil, 
                            2 tsps cumin seeds, 
