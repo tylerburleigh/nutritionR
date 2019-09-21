@@ -174,7 +174,6 @@ The full list of nutrients is as follows:
 - cryptoxanthin
 - copper
 - cystine
-- energy
 - monosaturated fat
 - polysaturated fat
 - folate
