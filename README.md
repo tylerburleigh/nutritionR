@@ -1,47 +1,125 @@
 # nutritionR
-A wrapper for the Paprika (https://www.paprikaapp.com) and Nutritionix (https://www.nutritionix.com) APIs, allowing nutritional analysis of recipes stored in Paprika using natural language processing via Nutritionix.
+A wrapper for the Nutritionix API (https://www.nutritionix.com), allowing nutritional analysis of foods and recipes expressed in natural language.
 
-# Requirements to use
+# Requirements
 
-Requires a Paprika Cloud Sync account (paid, $20) and a Nutritionix API key (free)
+Requires a Nutritionix API key (it's free!). Go to https://developer.nutritionix.com
 
-# Installation
+# Installation / getting started
+
+1. Install the package
 
 ```
-install.packages("devtools")
 devtools::install_github("tylerburleigh/nutritionR")
 ```
 
-# Vignette
-
-## 1. Set credentials for Paprika and Nutritionix
+2. Load the package and set your API keys
 
 ```
-install_paprika_creds("MyUsername", "MyPassword")
-install_nutritionix_creds("MyAppID", "MyAPIKey")
+library("nutritionR")
+Sys.setenv(NUTRITIONIX_APP_ID = "MY_APP_ID")
+Sys.setenv(NUTRITIONIX_API_KEY = "MY_API_KEY")
 ```
 
-## 2. Fetch recipe list from Paprika
+# How do I use `nutritionR`?
+
+This package has two functions:
+
+## `nutritionix_lookup()`
+
+`nutritionix_lookup()` takes a natural language food query as input, and it sends this query to the Nutritionix API and then returns an list object with all sorts of nutrition information. You can look at this object, but you will probably want to just save this object and send it to the next function.
+
+For example, let's say you wanted to query Nutritionix with "A hamburger with cheese".
 
 ```
-recipes <- get_recipes_list()
-recipes
+obj <- nutritionix_lookup("A hamburger with cheese")
 ```
 
-## 3. Get details for first recipe in recipes list
+## `nutrient()`
+
+`nutrient()` takes a nutrition object returned by `nutritionix_lookup()` and a nutrient as input, and returns the information about that nutrient. For example, let's say you wanted to know how many calories were in your query "A hamburger with cheese".
 
 ```
-recipe_detail <- get_recipe_detail(recipes$uid[1])
-recipe_detail
+obj <- nutritionix_lookup("A hamburger with cheese")
+nutrient(obj, "calories")
 ```
 
-## 4. Get calories using recipe ingredients
+# Great, now what nutrients can I lookup?
 
-```
-calories <- get_recipe_detail(recipe_detail$ingredients)
-calories
-```
+Currently, 68 nutrients are supported. 
+This includes macronutrients like fat, protein, carbs, calories, and also micronutrients, vitamins, and minerals.
 
-# Thanks
+The full list of nutrients is as follows:
 
-Thanks to @mattdsteele for reverse-engineering the Paprika API https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a, and @walkerke for writing tidycensus https://github.com/walkerke/tidycensus. Code from `tidycensus::census_api_key()` was used as a basis for `install_paprika_creds()` and `install_nutritionix_creds()`.
+- calcium
+- carbohydrate
+- cholesterol
+- calories
+- saturated fat
+- fat
+- trans fat
+- iron
+- fiber
+- potassium
+- sodium
+- protein
+- sugar
+- vitamin d
+- alanine
+- alcohol
+- arginine
+- ash
+- aspartic acid
+- caffeine
+- carotene alpha
+- carotene beta
+- choline
+- cryptoxanthin
+- copper
+- cystine
+- energy
+- monosaturated fat
+- polysaturated fat
+- folate
+- folic acid
+- folate
+- glutamic acid
+- glycine
+- histidine
+- isoleucine
+- leucine
+- lutein and zeaxanthin
+- lycopene
+- lysine
+- methionine
+- magnesium
+- manganese
+- niacin
+- phosphorus
+- pantothenic acid
+- phenylalanine
+- proline
+- retinol
+- riboflavin
+- selenium
+- serine
+- theobromine
+- thiamin
+- threonin
+- vitamin e
+- tryptophan
+- tyrosine
+- valine
+- vitamin a
+- vitamin a
+- vitamin b12
+- vitamin b-6
+- vitamin c
+- vitamin d2 and d3
+- vitamin k
+- water
+- zinc
+
+This list can also be accessed with `data(nutrients)`
+
+
