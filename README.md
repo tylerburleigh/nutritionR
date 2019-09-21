@@ -79,7 +79,7 @@ Here, `nutritionix_lookup()` returns a list object with 3 items, and `nutrient(o
 
 # Using `nutritionR` for recipes
 
-You can use `nutritionR` it to lookup nutrition info for recipes. 
+You can use `nutritionR` to lookup nutrition info for recipes. 
 
 For example, this is one of my favorite simple curry recipes:
 
