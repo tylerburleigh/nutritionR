@@ -219,3 +219,8 @@ The full list of nutrients is as follows:
 This list can also be accessed with `data(nutrients)`
 
 
+# Package maintainer / author
+
+nutritionR is written and maintained by [Tyler Burleigh](https://tylerburleigh.com).
+
+<a href="https://twitter.com/intent/follow?screen_name=tylerburleigh"><img src="https://img.shields.io/twitter/follow/tylerburleigh?style=social&logo=twitter" alt="follow on Twitter"></a>
