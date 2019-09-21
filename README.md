@@ -25,7 +25,7 @@ Sys.setenv(NUTRITIONIX_API_KEY = "MY_API_KEY")
 
 This package has two functions:
 
-## `nutritionix_lookup()`
+## 1. `nutritionix_lookup()`
 
 `nutritionix_lookup()` takes a natural language food query as input, it sends this query to the Nutritionix API, and then returns an list object with all sorts of nutrition information. 
 
@@ -37,7 +37,7 @@ For example, let's say you wanted to query Nutritionix with "A hamburger with ch
 obj <- nutritionix_lookup("A hamburger with cheese")
 ```
 
-## `nutrient()`
+## 2. `nutrient()`
 
 `nutrient()` takes a nutrition object returned by `nutritionix_lookup()` and a nutrient as input, and returns the information about that nutrient. Specifically, it returns the name, amount, and unit. 
 
@@ -76,6 +76,50 @@ $unit
 ```
 
 Here, `nutritionix_lookup()` returns a list object with 3 items, and `nutrient(obj, "calories")` returns the calories for all of the ingredients summed together.
+
+# Using `nutritionR` for recipe nutrition
+
+You can use `nutritionR` it to lookup nutrition info for recipes. 
+
+For example, this is one of my favorite simple curry recipes:
+
+- 2 cups dry red lentils
+- 2 tsps turmeric
+- 4 tbsp olive oil
+- 2 tsps cumin seeds
+- 1 small onion
+- 2 cloves garlic
+- 2 fresh green chillies
+- 1 tsp garam masala
+- 1 tsp ground coriander
+- 1 tbsp fresh ginger
+- 2 medium tomatoes
+
+If I want to know the nutrition of this recipe, I can take these ingredients and enter them as a query to the `nutritionix_lookup()` function, as a comma-separated string like this:
+
+```
+obj <- nutritionix_lookup("2 cups dry red lentils, 2 tsps turmeric, 4 tbsp olive oil, 2 tsps cumin seeds, 1 small onion, 2 cloves garlic, 2 fresh green chillies, finely, sliced, 1 tsp garam masala, 1 tsp ground coriander, 1 tbsp fresh ginger, 2 medium tomatoes")
+nutrient(obj, "calories")
+
+$name
+[1] "calories"
+
+$amount
+[1] 2022.532
+
+$unit
+[1] "kcal"
+```
+
+Let's say I want to know the calories per serving. If I know how many servings the recipe makes, then I could divide the `amount` returned by `nutrient()` by the number of servings.
+
+```
+obj <- nutritionix_lookup("2 cups red lentils, 2 tsps turmeric, 4 tbsp olive oil, 2 tsps cumin seeds, 1 small onion, 2 cloves garlic, 2 fresh green chillies, finely, sliced, 1 tsp garam masala, 1 tsp ground coriander, 1 tbsp fresh ginger, 2 medium tomatoes")
+calories <- nutrient(obj, "calories")
+calories$amount / 6
+
+[1] 337.0887
+```
 
 # Great, so what nutrients can I lookup?
 
