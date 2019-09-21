@@ -27,9 +27,11 @@ This package has two functions:
 
 ## `nutritionix_lookup()`
 
-`nutritionix_lookup()` takes a natural language food query as input, and it sends this query to the Nutritionix API and then returns an list object with all sorts of nutrition information. You can look at this object, but you will probably want to just save this object and send it to the next function.
+`nutritionix_lookup()` takes a natural language food query as input, it sends this query to the Nutritionix API, and then returns an list object with all sorts of nutrition information. 
 
-For example, let's say you wanted to query Nutritionix with "A hamburger with cheese".
+You can inspect this object. It has all sorts of information like portion size, quantity, weight, brand name (if applicable), and of course nutrition. If you don't specify a portion size or quantity, it will make its own assumptions. You can see what these assumptions are.
+
+For example, let's say you wanted to query Nutritionix with "A hamburger with cheese":
 
 ```
 obj <- nutritionix_lookup("A hamburger with cheese")
@@ -37,14 +39,45 @@ obj <- nutritionix_lookup("A hamburger with cheese")
 
 ## `nutrient()`
 
-`nutrient()` takes a nutrition object returned by `nutritionix_lookup()` and a nutrient as input, and returns the information about that nutrient. For example, let's say you wanted to know how many calories were in your query "A hamburger with cheese".
+`nutrient()` takes a nutrition object returned by `nutritionix_lookup()` and a nutrient as input, and returns the information about that nutrient. Specifically, it returns the name, amount, and unit. 
+
+For example, let's say you wanted to know how many calories were in your query "A hamburger with cheese".
 
 ```
 obj <- nutritionix_lookup("A hamburger with cheese")
 nutrient(obj, "calories")
+
+$name
+[1] "calories"
+
+$amount
+[1] 653.26
+
+$unit
+[1] "kcal"
 ```
 
-# Great, now what nutrients can I lookup?
+# Natural language, what?
+
+The Nutritionix API uses natural language processing to process your queries. It can usually figure out what food items you're referring to even when you give it a complex input with non-food related details. For example, let's say you had eggs and toast for breakfast, and a burrito for lunch. You can use this query exactly as it is:
+
+```
+obj <- nutritionix_lookup("I had eggs and toast for breakfast, and a burrito for lunch.")
+nutrient(obj, "calories")
+
+$name
+[1] "calories"
+
+$amount
+[1] 569.1
+
+$unit
+[1] "kcal"
+```
+
+Here, `nutritionix_lookup()` returns a list object with 3 items, and `nutrient(obj, "calories")` returns the calories for all of the ingredients summed together.
+
+# Great, so what nutrients can I lookup?
 
 Currently, 68 nutrients are supported. 
 This includes macronutrients like fat, protein, carbs, calories, and also micronutrients, vitamins, and minerals.
