@@ -25,8 +25,14 @@ nutritionix_lookup <- function(query) {
     encode = "json"
   )
 
-  # Return content
-  return(httr::content(data))
+  if(httr::content(data)$message == "We couldn't match any of your foods"){
+    stop("Error: Couldn't match any of your foods")
+  } else {
+
+    # Return content
+    return(httr::content(data))
+
+  }
 
 }
 

@@ -9,17 +9,16 @@ nutrient(obj, nutrient)
 \arguments{
 \item{obj}{The nutrition object -- a list returned by the `nutritionix_lookup()` function.}
 
-\item{nutrient}{The nutrient to extract from the nutrition object. Must be one of: "calories", "fat", "saturated fat", "cholesterol", "sodium", "carbs", "fiber", "sugar", "potassium", etc... For a full list of supported nutrients, call `nutrients_list()`}
+\item{nutrient}{The nutrient to extract from the nutrition object. Must be one of the nutrients in `data(nutrients)`, such as : "calories", "fat", "carbs", "fiber", "sugar", etc}
 }
 \description{
-Gets the sum of a single nutrient from a nutrition object.
-For example, gets the total calories or total fat.
+Gets the sum of a single nutrient from a nutrition object. For example, gets the total calories or total fat. For a list of nutrients available, see `data(nutrients)`.
 }
 \examples{
 
 \dontrun{
 
-obj <- nutritionix_lookup("1 cup of tofu")
+obj <- nutritionix_lookup("1 cheeseburger")
 nutrition(obj, "calories")
 
 }

@@ -1,11 +1,11 @@
 Package: nutritionR
 Type: Package
-Title: A wrapper for the Nutritionix API, allowing nutritional analysis of foods and recipes
+Title: A wrapper for the Nutritionix API (https://www.nutritionix.com), allowing nutritional analysis of foods and recipes expressed in natural language.
 Version: 0.01
 Date: 2019-09-21
 Author: Tyler Burleigh <tylerburleigh@gmail.com>
 Maintainer: Tyler Burleigh <tylerburleigh@gmail.com>
-Description: A wrapper for the Nutritionix API, allowing nutritional analysis of foods and recipes
+Description: A wrapper for the Nutritionix API (https://www.nutritionix.com), allowing nutritional analysis of foods and recipes expressed in natural language.
 License: MIT
 Encoding: UTF-8
 LazyData: true

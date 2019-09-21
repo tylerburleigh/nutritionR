@@ -22,7 +22,6 @@ nutrient <- function(obj, nutrient){
 
   nutrients <- get(data(nutrients))
 
-  n <- nutrients[[nutrient]][['name']]
   a <- nutrients[[nutrient]][['attr_id']]
   u <- nutrients[[nutrient]][['unit']]
 
@@ -37,6 +36,6 @@ nutrient <- function(obj, nutrient){
 
   # Return amount, name, and unit
   return(
-    list(name = n, amount = amount, unit = u)
+    list(name = nutrient, amount = amount, unit = u)
   )
 }
