@@ -207,7 +207,6 @@ The full list of nutrients is as follows:
 - tyrosine
 - valine
 - vitamin a
-- vitamin a
 - vitamin b12
 - vitamin b-6
 - vitamin c
