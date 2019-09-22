@@ -89,7 +89,7 @@ For example, this is one of my favorite simple curry recipes:
 - 2 tsps cumin seeds
 - 1 small onion
 - 2 cloves garlic
-- 2 fresh green chillies
+- 2 fresh green chiles
 - 1 tsp garam masala
 - 1 tsp ground coriander
 - 1 tbsp fresh ginger
@@ -130,7 +130,7 @@ obj <- nutritionix_lookup("2 cups dry red lentils,
                            2 tsps cumin seeds, 
                            1 small onion, 
                            2 cloves garlic, 
-                           2 fresh green chillies, 
+                           2 fresh green chiles, 
                            1 tsp garam masala, 
                            1 tsp ground coriander, 
                            1 tbsp fresh ginger, 
